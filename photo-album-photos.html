@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/photo-album-styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="container" class="container">
+            <h1 class="fw-bolder">Альбом {{albumId}}</h1>
+            <div v-if="!isLoading" class="main-content">
+                <div class="form-container col-3">
+                    <h3>Добавьте фото в альбом</h3>
+                    <form class="needs-validation" ref="submissionForm">
+                        <input id="titleInput" type="text" placeholder="Название фото" required class="form-control" name="title" ref="title">
+                        <input id="urlInput" type="text" placeholder="Ссылка на изображение" required class="form-control" name="url" ref="url">
+                        <input id="thumbnailUrlInput" type="text" placeholder="Ссылка на миниатюру изображения" required class="form-control" name="thumbnailUrl" ref="thumbnailUrl">
+                        <button :disabled="isLoadingSubmission" class="btn" type="submit" @click="submitForm">Добавить фото</button>
+                    </form>
+                    <a :disabled="isLoadingSubmission" class="return-btn" href="photo-album-index.html">&#171; Назад к альбомам</a>
+                </div>
+                <div class="album-section">
+                    <div class="album-item photo-item col-6" v-for="item in photos">
+                        <div class="img-container">
+                            <img :src="item.thumbnailUrl" alt="Картинка" v-if="item.thumbnailUrl">
+                            <div v-else>Загрузка...</div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="fw-bolder card-title">{{ item.title }}</h4>
+                            <p class="text-black-50">Номер альбома: {{item.albumId}}</p>
+                            <button :disabled="isLoadingSubmission" class="btn card-btn" type="submit" @click="deletePhoto" :data-id="item.id">Удалить фото</button>
+                        </div>                     
+                    </div>
+                </div>
+            </div>
+            <div v-else>Загрузка...</div>
+        </div>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            el: '#app',
+
+            data() {
+                return {
+                    photos: [],
+                    isLoading: false,
+                    isLoadingSubmission: false,
+                    albumId: 0,
+                }
+            },
+
+            methods: {
+                async fetchData(id) {
+                    console.log(this.photos);
+                    this.isLoading = true;
+
+                    fetch('https://jsonplaceholder.typicode.com/photos?albumId=' + id)
+                        .then(async (response) => {
+                            this.photos = await response.json();
+                            //const responseObject = await response.json();
+                            //this.albums.push(responseObject);
+                            this.isLoading = false;
+                        })
+                        .catch((e) => {
+                            console.log(e);
+                            alert("Не удалось загрузить данные");
+                        })
+
+                    //const response = await fetch('https://jsonplaceholder.typicode.com/photos/' + photoIndex.toString());
+
+                    //this.photos.push({albumId: responseObject.albumId, id: responseObject.id, title: responseObject.title, url: responseObject.url, thumbnailUrl: responseObject.thumbnailUrl})
+                },
+
+                async submitForm() {
+                    const requestOptions = {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ title: this.$refs.title.value, url: this.$refs.url.value, thumbnailUrl: this.$refs.thumbnailUrl.value})
+                    };
+
+                    this.isLoadingSubmission = true;
+                    fetch('https://jsonplaceholder.typicode.com/photos', requestOptions)
+                        .then(async (response) => {
+                            alert("Форма успешно отправлена!");
+                            //const responseObject = await response.json();
+                            //this.albums.push(responseObject);
+                            console.log(response);
+                            this.$refs.submissionForm.reset();
+                            this.isLoadingSubmission = false;
+                        })
+                        .catch((e) => {
+                            console.log(e);
+                            alert("Не удалось загрузить данные");
+                        })
+
+                }, 
+
+                async returnToAlbums() {
+                    window.location = 'photo-album-index.html';
+                },
+
+                async deletePhoto(event) {
+                    const requestOptions = {
+                        method: "DELETE",
+                        headers: { "Content-Type": "application/json" },
+                    };
+
+                    const photoId = event.currentTarget.dataset.id;
+                    this.isLoadingSubmission = true;
+                    fetch('https://jsonplaceholder.typicode.com/photos/' + photoId, requestOptions)
+                        .then(async (response) => {
+                            alert("Фото успешно удалено!");
+                            //const responseObject = await response.json();
+                            //this.albums.push(responseObject);
+                            console.log(response);
+                            this.isLoadingSubmission = false;
+                        })
+                        .catch((e) => {
+                            console.log(e);
+                            alert("Не удалось загрузить данные");
+                        })
+
+                }
+            },
+            mounted() {
+                this.fetchData(localStorage.getItem('albumId'));
+                this.albumId = localStorage.getItem('albumId');
+            },
+        })
+        app.mount('#app') 
+    </script>
+</body>
+
+</html>
