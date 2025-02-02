@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/abiturient.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Главная</title>
+</head>
+<body>
+    <div class="container d-flex flex-column align-items-center">
+        <h2 class="text-center fw-bolder">Анкета абитуриента</h2>
+        <form class="col-6 needs-validation" novalidate action="https://send.pageclip.co/eMTgR4Ql2ZIjvcQN2IwWLPMnP3mX52J5/Test123" method="post">
+            <div class="group-container">
+                <div>
+                    <input required type="text" class="form-control" placeholder="Фамилия" name="surname">
+                    <div class="invalid-feedback">Пожалуйста, введите свою фамилию</div>
+                </div>
+            
+                <div>
+                    <input required type="text" class="form-control" placeholder="Имя" name="name">
+                    <div class="invalid-feedback">Пожалуйста, введите своё имя</div>
+                </div>
+
+                <input type="text" class="form-control" placeholder="Отчество" name="patronymic">
+            </div>
+            <div class="birth-date">
+                <label class="form-label fw-bolder">Дата рождения</label>
+                <input required type="date" class="form-control" id="dateBirthPicker" name="birthDate">
+                <div class="invalid-feedback">Пожалуйста, введите дату своего рождения</div>
+            </div>
+
+            <div>
+                <input required type="email" class="form-control" placeholder="Адрес электронной почты" name="email">
+                <div class="invalid-feedback">Пожалуйста, введите корректный адрес электронной почты (например, ivanov@mail.ru, ivanov@gmail.com или ivanov@yandex.ru)</div>    
+            </div>
+
+            <div>
+                <input required minlength="11" maxlength="11" pattern="8[0-9]{10}|+7[0-9]{10}|+375[0-9]{9}" type="text" class="form-control" placeholder="Номер телефона, без пробелов, скобок и дефисов" name="phone">
+                <div class="invalid-feedback">Пожалуйста, введите корректный номер телефна, без пробелов, скобок и дефисов, начиная с 8, +7 или +375 (например, 89870984532 или +375178760945)</div>    
+            </div>
+            
+            <div class="group-container">
+                <div>
+                    <label class="form-label fw-bolder">Какое у вас образование?</label>
+                    <select required class="form-select" aria-label="Default select example" name="education">
+                    <option value="">-</option>
+                    <option value="fullMiddle">Среднее полное</option>
+                    <option value="fullProfessional">Среднее профессиональное</option>
+                    <option value="high">Высшее</option>
+                </select>
+                </div>
+                <div>
+                    <input required type="text" class="form-control" placeholder="Название последнего оконченного Вами заведения" name="lastStudyPlaceName">
+                    <div class="invalid-feedback">Пожалуйста, введите название последнего оконченного Вами заведения</div>    
+                </div>
+                <input type="text" class="form-control" placeholder="Специальность, на которой Вы обучались" name="lastStudySpeciality">
+            </div>
+            <div class="group-container">
+                <label class="form-label fw-bolder">Выберите факультеты, которые рассматриваете</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="ITcheckBox" name="interestedInIT">
+                    <label class="form-check-label" for="ITcheckBox">
+                        Факультет информационных технологий
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="TransportCheckBox" name="interestedInTransport">
+                    <label class="form-check-label" for="TransportCheckBox">
+                        Транспортный факультет
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="CarCheckBox" name="interestedInCar">
+                    <label class="form-check-label" for="CarCheckBox">
+                        Факультет машиностроения
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="BioCheckBox" name="interestedInBio">
+                    <label class="form-check-label" for="BioCheckBox">
+                        Факультет химической технологии и биотехнологии
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="UrbanCheckBox" name="interestedInUrban">
+                    <label class="form-check-label" for="UrbanCheckBox">
+                        Факультет урбанистики и городского хозяйства
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="EconomyCheckBox" name="interestedInEconomy">
+                    <label class="form-check-label" for="EconomyCheckBox">
+                        Факультет экономики и управления
+                    </label>
+                </div>
+            </div>
+            <div class="group-container">
+                <label for="formFile" class="form-label fw-bolder">Прикрепите Ваши дипломы и сертификаты</label>
+                <div>
+                    <input required class="form-control" type="file" id="formFile" name="files">
+                    <div class="invalid-feedback">Пожалуйста, прикрепите файлы ваших дипломов и сертификатов</div>        
+                </div>
+            </div>
+            <div class="group-container">
+                <label for="formFile" class="form-label fw-bolder">Выберите форму обучения</label> 
+                <div class="form-check">
+                    <input required class="form-check-input" type="radio" id="IntramuralRadioButton" name="educationForm" value="Intramural">
+                    <label class="form-check-label" for="IntramuralRadioButton">Очная</label>
+                </div>
+                <div class="form-check">
+                    <input required class="form-check-input" type="radio" id="ExtramuralRadioButton" name="educationForm" value="Extramural">
+                    <label class="form-check-label" for="ExtramuralRadioButton">Заочная</label>
+                </div>
+                <div class="form-check">
+                    <input required class="form-check-input" type="radio" id="DistantRadioButton" name="educationForm" value="Distant">
+                    <label class="form-check-label" for="DistantRadioButton">Дистанционная</label>
+                </div>       
+            </div>
+            <button class="btn btn-primary" type="submit">Опубликовать анкету</button>
+        </form>
+    </div>
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+    <script src="abiturient.js" charset="utf-8"></script>
+</body>
+</html>
