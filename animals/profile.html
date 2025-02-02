@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Название страницы</title>
+    <link rel="stylesheet" href="styles/styles.css"> <!-- Подключение CSS -->
+</head>
+<body>
+
+    <header>
+        <img src="images/logo.png" class = "logo">
+        <nav class="menu">
+            <ul>
+                <li><a href="#section1">Поиск</a></li>
+                <li><a href="#section2">Регистрация</a></li>
+                <li><a href="#section3">Личный кабинет</a></li>
+                <li><a href="#section3">Добавить</a></li>
+                <li><a href="#section3">Отзывы</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile">
+            <img src="images/autorized-user icon.png" alt="" class="profile-picture">
+            <div class="info">
+                <h2 class="info-name">Иванов Иван Иванович</h2>
+                <div class="info-contacts">
+                    <div class="info-row">
+                        <label>+7 945 784 90 34</label>
+                        <button class="edit-btn search-btn"><img class="icon-img" src="images/edit.png"></button>
+                    </div>
+                    <div class="info-row">
+                        <label>ivanich@mail.ru</label>
+                        <button class="edit-btn search-btn"><img class="icon-img" src="images/edit.png"></button>
+                    </div>
+                </div>
+                <div class="info-count-container">
+                    <div class="info-count">
+                        <label class="info-count-number">23</label>
+                        <label class="info-count-description">добавленных объявлений</label>
+                    </div>
+                    <div class="info-count">
+                        <label class="info-count-number">20</label>
+                        <label class="info-count-description">животных вернулось к хозяевам</label>
+                    </div>
+                </div>
+                <div class="card-data info-data">
+                    <label class="info-date-number">Дата регистрации: 23.05.21</label>
+                    <label class="info-date-days-count">1214 дней с нами</label>
+                </div>
+            </div>
+        </section>
+        <section class="groups">
+            <h2>Ваши объявления</h2>
+            <div class="active-group">
+                <h3>Активные</h3>
+                <div class="card-group">
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="card profile-card">
+                                <label class="card-status active-status">Активно</label>
+                                <div class="card-fit">
+                                    <img class="card-img" src="images/recent/close-up-portrait-beautiful-cat.jpg">
+                                </div>
+                                <div class="card-info">
+                                    <label>Дмитровский район</label>
+                                    <label>Нашлась где-то во дворе</label>
+                                    <label>Клеймо: Шарик</label>
+                                </div>
+                                <div class="card-buttons">
+                                    <button class="card-delete-button card-btn">Удалить</button>
+                                    <button class="card-edit-button card-btn more-btn">Редактировать</button>
+                                </div>
+                            </div>
+                            <div class="card profile-card">
+                                <label class="card-status active-status">Активно</label>
+                                <div class="card-fit">
+                                    <img class="card-img" src="images/recent/close-up-portrait-beautiful-cat.jpg">
+                                </div>
+                                <div class="card-info">
+                                    <label>Дмитровский район</label>
+                                    <label>Нашлась где-то во дворе</label>
+                                    <label>Клеймо: Шарик</label>
+                                </div>
+                                <div class="card-buttons">
+                                    <button class="card-delete-button card-btn">Удалить</button>
+                                    <button class="card-edit-button card-btn more-btn">Редактировать</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="prev-button slider-btn" aria-label="Посмотреть предыдущий слайд">&lt;</button>
+                        <button class="next-button slider-btn" aria-label="Посмотреть следующий слайд">&gt</button>
+                    </div>
+                </div>
+            </div>
+            <div class="on-moderation-group">
+                <h3>На модерации</h3>
+                <div class="card-group">
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="card profile-card">
+                                <div class="status-container">
+                                    <label class="card-status on-moderation-status">На модерации</label>
+                                </div>
+                                <div class="card-fit">
+                                    <img class="card-img" src="images/recent/close-up-portrait-beautiful-cat.jpg">
+                                </div>
+                                <div class="card-info">
+                                    <label>Дмитровский район</label>
+                                    <label>Нашлась где-то во дворе</label>
+                                    <label>Клеймо: Шарик</label>
+                                </div>
+                                <div class="card-buttons">
+                                    <button class="card-delete-button card-btn">Удалить</button>
+                                    <button class="card-edit-button card-btn more-btn">Редактировать</button>
+                                </div>
+                            </div>
+                            <div class="card profile-card">
+                                <label class="card-status on-moderation-status">На модерации</label>
+                                <div class="card-fit">
+                                    <img class="card-img" src="images/recent/close-up-portrait-beautiful-cat.jpg">
+                                </div>
+                                <div class="card-info">
+                                    <label>Дмитровский район</label>
+                                    <label>Нашлась где-то во дворе</label>
+                                    <label>Клеймо: Шарик</label>
+                                </div>
+                                <div class="card-buttons">
+                                    <button class="card-delete-button card-btn">Удалить</button>
+                                    <button class="card-edit-button card-btn more-btn">Редактировать</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="prev-button slider-btn" aria-label="Посмотреть предыдущий слайд">&lt;</button>
+                        <button class="next-button slider-btn" aria-label="Посмотреть следующий слайд">&gt</button>
+                    </div>
+                </div>
+            </div>
+            <div class="found-group">
+                <h3>Найденные</h3>
+                <div class="card-group">
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="card profile-card">
+                                <label class="card-status found-status">Найдено</label>
+                                <div class="card-fit">
+                                    <img class="card-img" src="images/recent/close-up-portrait-beautiful-cat.jpg">
+                                </div>
+                                <div class="card-info">
+                                    <label>Дмитровский район</label>
+                                    <label>Нашлась где-то во дворе</label>
+                                    <label>Клеймо: Шарик</label>
+                                </div>
+                            </div>
+                            <div class="card profile-card">
+                                <label class="card-status found-status">Найдено</label>
+                                <div class="card-fit">
+                                    <img class="card-img" src="images/recent/close-up-portrait-beautiful-cat.jpg">
+                                </div>
+                                <div class="card-info">
+                                    <label>Дмитровский район</label>
+                                    <label>Нашлась где-то во дворе</label>
+                                    <label>Клеймо: Шарик</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="prev-button slider-btn" aria-label="Посмотреть предыдущий слайд">&lt;</button>
+                        <button class="next-button slider-btn" aria-label="Посмотреть следующий слайд">&gt</button>
+                    </div>
+                </div>
+            </div>
+            <div class="archived-group">
+                <h3>В архиве</h3>
+                <div class="card-group">
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="card profile-card">
+                                <label class="card-status archived-status">В архиве</label>
+                                <div class="card-fit">
+                                    <img class="card-img" src="images/recent/close-up-portrait-beautiful-cat.jpg">
+                                </div>
+                                <div class="card-info">
+                                    <label>Дмитровский район</label>
+                                    <label>Нашлась где-то во дворе</label>
+                                    <label>Клеймо: Шарик</label>
+                                </div>
+                            </div>
+                            <div class="card profile-card">
+                                <label class="card-status archived-status">В архиве</label>
+                                <div class="card-fit">
+                                    <img class="card-img" src="images/recent/close-up-portrait-beautiful-cat.jpg">
+                                </div>
+                                <div class="card-info">
+                                    <label>Дмитровский район</label>
+                                    <label>Нашлась где-то во дворе</label>
+                                    <label>Клеймо: Шарик</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="prev-button slider-btn" aria-label="Посмотреть предыдущий слайд">&lt;</button>
+                        <button class="next-button slider-btn" aria-label="Посмотреть следующий слайд">&gt</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-contact-info">
+            <label>8 (800)123-45-67</label>
+            <label>mail@newlife.ru</label>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#section1">Главная</a></li>
+                <li><a href="#section2">Регистрация</a></li>
+                <li><a href="#section3">Авторизация</a></li>
+                <li><a href="#section3">Личный кабинет</a></li>
+                <li><a href="#section3">Найдено животное</a></li>
+                <li><a href="#section3">Поиск</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
