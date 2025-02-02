@@ -1,0 +1,67 @@
+@use "sass:list";
+@use "sass:color";
+
+$font-stack: Helvetica, Arial;
+$primary-color: #331d6e;
+$secondary-color: #7253c7;
+$border: 2px solid $primary-color;
+
+body {
+  $font-stack: list.append($font-stack, sans-serif);
+  font-family: $font-stack;
+}
+
+@mixin standart-heading($size, $weight) {
+  color: $primary-color;
+  margin: 50px auto 30px;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin form-element($color, $background-color, $radius) {
+  border: $border;
+  border-radius: $radius;
+  padding: 10px;
+  color: $color;
+  background-color: $background-color;
+  height: 50px;
+  width: 200px;
+  text-align: center;
+}
+
+table {
+  display: flex;
+  flex-direction: row;
+}
+
+th {
+  @include form-element(white, $primary-color, 0);
+}
+
+td {
+  @include form-element(white, $secondary-color, 0);
+}
+
+h1 {
+  @include standart-heading(56px, 500);
+}
+
+h3 {
+  @include standart-heading(32px, normal);
+}
+
+.btn {
+  @include form-element(white, $secondary-color, 10px);
+
+  &:hover{
+    background-color: color.scale($secondary-color, $lightness: 20%);
+  }
+}
+
+input {
+  @include form-element($primary-color, white, 10px);
+}
+
+::placeholder, p {
+  color: $secondary-color;
+}
